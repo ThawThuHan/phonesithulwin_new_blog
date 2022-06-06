@@ -1,0 +1,7 @@
+@font-face {
+    font-family: Pyidaungsu;
+    src: url(../assets/fonts/Pyidaungsu-2.5.3_Regular.ttf), url(../assets/fonts/Pyidaungsu-2.5.3_Bold.ttf);
+  }
+  body {
+    font-family: Pyidaungsu;
+  }

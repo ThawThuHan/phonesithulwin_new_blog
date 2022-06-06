@@ -1,0 +1,16 @@
+#menu {
+    background-color: darkslateblue;
+}
+
+@media (max-width: 450px) {
+    #menu {
+        position: fixed;
+        z-index: 1;
+    }
+}
+
+@media (min-width: 768px) {
+    #menuToggle {
+        display: none;
+    }
+}

@@ -1,0 +1,10 @@
+.blog>img {
+    width: 100%;
+    /* object-fit: contain; */
+    object-fit: cover;
+    height: 180px;
+}
+
+.blogShadow:hover {
+    box-shadow: 0px 0px 5px black;
+}

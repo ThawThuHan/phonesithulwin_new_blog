@@ -1,0 +1,9 @@
+#about-image {
+    height: 100%;
+}
+
+#about-image>img {
+    box-shadow: 0 0 10px;
+    /* border: 4px solid #01527f; */
+    border-radius: 20px;
+}

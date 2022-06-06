@@ -1,0 +1,27 @@
+.side-title {
+    font-size: 0.7rem
+}
+
+.main-image {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+
+#content {
+    font-size: 1rem;
+}
+
+@media (min-width: 426px) {
+    .side-title {
+        font-size: 1.2rem
+    }
+
+    .main-image {
+        height: 350px;
+    }
+
+    #content {
+        font-size: 1.2rem;
+    }
+}
