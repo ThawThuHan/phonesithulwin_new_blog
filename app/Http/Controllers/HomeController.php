@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\ContactMail;
 use App\Models\Book;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\SiteMaster;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -28,11 +27,13 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $siteMaster = SiteMaster::latest()->first();
         $books = Book::all();
         $recentPosts = Post::with('category')->latest()->paginate(9);
         $popularPosts = Post::with('category')->orderBy('view_count', 'desc')->take(4)->get();;
         // dd($popularPosts);
         return view('home', [
+            "siteMaster" => $siteMaster,
             "books" => $books,
             "recentPosts" => $recentPosts,
             "popularPosts" => $popularPosts,
@@ -90,21 +91,5 @@ class HomeController extends Controller
             "category" => $category,
             "posts" => $posts,
         ]);
-    }
-
-    public function sendMail(Request $request)
-    {
-        $details = [
-            "name" => $request->yname,
-            "email" => $request->email,
-            "phone" => $request->phone,
-            "messages" => $request->messages,
-        ];
-        try {
-            Mail::to("support@phonesithulwin.info")->send(new ContactMail($details));
-        } catch (\Throwable $th) {
-            return back()->with("error", "Email sending fail! please try again later...");
-        }
-        return back()->with("success", "Email send success! thanks.");
     }
 }

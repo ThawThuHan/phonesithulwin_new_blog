@@ -38,18 +38,14 @@
     <div class="container mt-5" id="primary">
         <div class="swiper mySwiper1">
             <div class="swiper-wrapper mb-3">
+                 @php
+                    $images = explode(",",$siteMaster->home_carousel_ad);    
+                @endphp
+                @foreach ($images as $image)
                 <div class="swiper-slide">
-                    <img src="assets/images/post ad.jpg" alt="">
+                    <img src="/storage/{{ $image }}" alt="" style="object-fit: contain">
                 </div>
-                <div class="swiper-slide">
-                    <img src="assets/images/book1.jpg" alt="">
-                </div>
-                <div class="swiper-slide">
-                    <img src="assets/images/book2.jpg" alt="">
-                </div>
-                <div class="swiper-slide">
-                   <img src="assets/images/book3.jpg" alt="">
-                </div>
+                @endforeach
             </div>
             <div class="swiper-pagination2"></div>
         </div>
@@ -84,7 +80,7 @@
 
 <!-- Ad -->
 <div class="container">
-    <img src="/assets/images/text.gif" class="adImg" alt="">
+    <img src="/storage/{{ $siteMaster->home_banner_ad }}" class="adImg" alt="">
 </div>
 
 <!-- popular posts -->
@@ -116,7 +112,7 @@
 
 <!-- Ad -->
 <div class="container">
-    <img src="/assets/images/text.gif" class="adImg" alt="">
+    <img src="/storage/{{ $siteMaster->home_banner_ad }}" class="adImg" alt="">
 </div>
 
 <!-- books -->
@@ -165,6 +161,10 @@
 
         </div>
     </div>
+</div>
+
+<div class="container">
+    <img src="/storage/{{ $siteMaster->home_banner_ad }}" class="adImg" alt="">
 </div>
     
 @endsection

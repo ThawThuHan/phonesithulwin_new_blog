@@ -29,21 +29,14 @@
         <div class="container" id="primary">
             <div class="swiper mySwiper1">
                 <div class="swiper-wrapper mb-3">
-                    <div class="swiper-slide">
-                        <img src="assets/images/carousel5.jpg" alt="">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="assets/images/carousel1.jpg" alt="">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="assets/images/carousel2.jpg" alt="">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="assets/images/carousel3.jpg" alt="">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="assets/images/carousel4.jpg" alt="">
-                    </div>
+                    @php
+                        $images = explode(",",$siteMaster->contact_carousel);    
+                    @endphp
+                    @foreach ($images as $image)
+                        <div class="swiper-slide">
+                            <img src="/storage/{{$image}}" alt="">
+                        </div>
+                    @endforeach
                 </div>
                 <div class="swiper-pagination2"></div>
             </div>

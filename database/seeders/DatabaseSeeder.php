@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\SiteMaster;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -21,10 +22,14 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        User::truncate();
         User::factory()->create([
             "name" => config("defaultLogin.admin_name"),
             "email" => config("defaultLogin.admin_email"),
             "password" => bcrypt(config("defaultLogin.admin_password")),
         ]);
+
+        SiteMaster::truncate();
+        SiteMaster::factory()->create();
     }
 }

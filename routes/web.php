@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CkeditorController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
@@ -41,15 +42,15 @@ Route::get('/book/{id}/order', [OrderController::class, "create"]);
 Route::post('/book/{id}/order', [OrderController::class, "store"]);
 
 Route::get('/about', fn () => view('about'));
-Route::get('/contact', fn () => view('contact'));
-Route::post('/contact', [HomeController::class, 'sendMail']);
+Route::get('/contact', [ContactController::class, 'index']);
+Route::post('/contact', [ContactController::class, 'sendMail']);
 
 Route::get('/phone-stl', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/phone-stl', [LoginController::class, 'login']);
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/', [DashboardController::class, 'index']);
-    Route::post('/', [DashboardController::class, 'adImage']);
+    Route::post('/', [DashboardController::class, 'updateOrCreate']);
     Route::resource("category", CategoryController::class);
     Route::resource("post", PostController::class);
     Route::post('/ckeditor/upload', [CkeditorController::class, 'upload'])->name('ckeditor.upload');

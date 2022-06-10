@@ -14,8 +14,8 @@
 
 @section('content')
 <!-- Ad -->
-<div class="container mb-2">
-    <img src="/assets/images/text.gif" class="adImg" alt="">
+<div class="container">
+    <img src="/storage/{{ $siteMaster->post_banner_ad }}" class="adImg" alt="">
 </div>
 
 <div class="container">
@@ -84,7 +84,7 @@
     
     <!-- Ad -->
     <div class="container">
-        <img src="/assets/images/text.gif" class="adImg" alt="">
+        <img src="/storage/{{ $siteMaster->post_banner_ad }}" class="adImg" alt="">
     </div>
 
     <!-- related posts -->
@@ -97,6 +97,11 @@
             </div>
             @endforeach
         </div>
+    </div>
+
+    <!-- Ad -->
+    <div class="container">
+        <img src="/storage/{{ $siteMaster->post_banner_ad }}" class="adImg" alt="">
     </div>
 </div>
 @endsection

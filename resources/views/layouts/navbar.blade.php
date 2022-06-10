@@ -33,7 +33,7 @@
                 
             </ul>
             @auth
-            <a class="nav-link" href="/admin-panel">Admin Panel</a>  
+            <a class="nav-link" href="/admin">Admin Panel</a>  
             @endauth
             <form class="d-flex me-3" action="{{ route('search') }}" method="GET">
                 <input class="form-control rounded-pill me-2" name="query" type="search" placeholder="ရှာဖွေရန်" aria-label="Search">
