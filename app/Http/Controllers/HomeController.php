@@ -63,11 +63,13 @@ class HomeController extends Controller
         }
         $post->view_count += 1;
         $post->update();
+        $siteMaster = SiteMaster::latest()->first();
         $recentPosts = Post::inRandomOrder()->latest()->take(10)->get();
         $popular = Post::orderBy('view_count', 'desc')->take(10)->get();
         $relatedPosts = Post::where("category_id", $post->category_id)->inRandomOrder()->take(3)->get();
         $relatedPosts = $relatedPosts->filter(fn ($rPost) => $rPost->id != $id);
         return view('post', [
+            "siteMaster" => $siteMaster,
             "current" => $post,
             "recentPosts" => $recentPosts,
             "popular" => $popular,

@@ -15,6 +15,11 @@
 
     <div class="row g-0">
         <div id="menu" class="col-6 col-md-2 d-none d-md-block">
+            <div class="menuToggle menu-btn">
+                <button onclick="menuToggle()" class="btn ms-auto menuToggle">
+                    <i class="fas fa-times fs-3"></i>
+                </button>
+            </div>
             <div class="sticky-top d-flex flex-column justify-content-between" style="height: 100vh;">
                 <div>
                     <h3 class="py-2 px-3 d-none d-md-block text-white text-center">Admin Panel</h3>
@@ -67,6 +72,9 @@
             </div>
         </div>
         <div class="col-12 col-md-10 p-2">
+            <div class="w-100">
+                <button onclick="menuToggle()" class="btn ms-auto menuToggle"><i class="fas fa-bars fs-3"></i></button>
+            </div>
             @yield('content')
         </div>
     </div>

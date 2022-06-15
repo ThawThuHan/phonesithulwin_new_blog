@@ -101,11 +101,11 @@
         <div>Total Website Visitors</div>
     </div>
     <div class="btn btn-primary">
-        <div><span id="count2" data-target2="107000" class="fs-2">107000</span><span class="fs-2">+</span></div>
+        <div><span id="count2" data-target2="{{ $siteMaster->facebook_follower }}" class="fs-2">107000</span><span class="fs-2">+</span></div>
         <div>Facebook Followers</div>
     </div>
     <div class="btn btn-primary">
-        <div><span id="count2" data-target2="14000" class="fs-2">14000</span><span class="fs-2">+</span></div>
+        <div><span id="count2" data-target2="{{ $siteMaster->weekly_visitor }}" class="fs-2">14000</span><span class="fs-2">+</span></div>
         <div>Weekly Website Visitors</div>
     </div>
 </div>
