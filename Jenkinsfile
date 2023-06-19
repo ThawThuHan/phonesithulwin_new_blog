@@ -3,13 +3,13 @@ pipeline {
   stages {
     stage('Git Checkout') {
       parallel {
-        stage('Git Checkout') {
+        stage('checkout main') {
           steps {
             git(url: 'https://github.com/ThawThuHan/phonesithulwin_new_blog.git', branch: 'main', credentialsId: 'GitHub')
           }
         }
 
-        stage('') {
+        stage('checkout dev') {
           steps {
             git(url: 'https://github.com/ThawThuHan/phonesithulwin_new_blog.git', branch: 'dev', credentialsId: 'GitHub')
           }
@@ -18,7 +18,7 @@ pipeline {
       }
     }
 
-    stage('') {
+    stage('check files') {
       steps {
         sh 'ls -la'
       }
